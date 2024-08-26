@@ -124,23 +124,23 @@ window.onload = (event) => {
                     if(currentActive.text && currentActive.type == 'e'){
                         let totalHeight = 0;
                         response.element.querySelector('.explain').querySelectorAll('p').forEach((v)=>{totalHeight += v.clientHeight;})
-                        if(totalHeight > .97*response.element.querySelector('.explain').clientHeight){
-                            arrowOpacityAnimationScroll();
-                            arrowAnimationClick();
-                        }else{
-                            response.element.querySelectorAll('.arrow-wrap').forEach((v)=>{v.style.display = 'none';})
-                        }
+                        // if(totalHeight > .97*response.element.querySelector('.explain').clientHeight){
+                        //     arrowOpacityAnimationScroll();
+                        //     arrowAnimationClick();
+                        // }else{
+                        //     response.element.querySelectorAll('.arrow-wrap').forEach((v)=>{v.style.display = 'none';})
+                        // }
                     }
                 }else if((response.index == 12 || response.index == 13) && figElem.getElementsByClassName('scrollamaImg')[0] == null){
                     imagePlacing(currentActive.img);
                     let totalHeight = 0;
                     response.element.querySelector('.explain').querySelectorAll('p').forEach((v)=>{totalHeight += v.clientHeight;})
-                    if(totalHeight > .97*response.element.querySelector('.explain').clientHeight){
-                        arrowOpacityAnimationScroll();
-                        arrowAnimationClick();
-                    }else{
-                        response.element.querySelectorAll('.arrow-wrap').forEach((v)=>{v.style.display = 'none';})
-                    }
+                    // if(totalHeight > .97*response.element.querySelector('.explain').clientHeight){
+                    //     arrowOpacityAnimationScroll();
+                    //     arrowAnimationClick();
+                    // }else{
+                    //     response.element.querySelectorAll('.arrow-wrap').forEach((v)=>{v.style.display = 'none';})
+                    // }
                 }
             }else{
                 alert('step not found');
