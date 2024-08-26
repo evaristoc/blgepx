@@ -2,7 +2,7 @@
 window.onload = (event) => {
     // using d3 for convenience
     // E: could have been something like jQuery, etc...
-    var main = d3.select('main')
+    var main = d3.select('main');
     var scrolly = main.select('#scrolly');
     var figure = scrolly.select('figure');
     var article = scrolly.select('div .articlepost');
@@ -22,55 +22,14 @@ window.onload = (event) => {
         step.style('height', stepH + 'px');
 
         let figureHeight = window.innerHeight / 2;
-        //let figureWidth = window.innerWidth / 2;
         let figureMarginTop = (window.innerHeight - figureHeight) / 2;  
         figure
             .style('height', figureHeight + 'px')
-            //.style('width', figureWidth + 'px')
             .style('top', figureMarginTop + 'px');
         
     // 3. tell scrollama to update new element dimensions
         scroller.resize();
     }
-    
-    /* E: the following for another day... */
-    // const isActiveFigure = document.querySelector("#scrollfig.scrollamaImg");
-    
-    // function isFigActiveEvent(resource){
-    //     isActiveFigure.addEventListener("animationended", () => {
-    //         figElem.innerHTML = "";
-    //         let img = document.createElement("img");
-    //         img.src = resourcesImgs + resource;
-    //         figElem.classList.add('scrollamaImg');
-    //         figElem.appendChild(img);
-    //     })
-    // }
-
-    // (function(scroll){
-    //     scroll.onscroll = function(){
-    //         let sibling = scroll.parentNode.querySelector('.arrow');
-    //         //console.log(sibling.style.opacity);
-    //         //console.log(scroll.parentNode.style.height, scroll.parentNode.getBoundingClientRect(), scroll.scrollTop, scroll.clientHeight, scroll.scrollHeight);  
-    //         //sibling.style.opacity = 1 - (scroll.scrollTop + scroll.clientHeight)/scroll.scrollHeight;
-    //         //console.log(scroll.scrollTop, scroll.clientHeight, scroll.scrollHeight);
-    //         sibling.style.opacity = 1 - scroll.scrollTop/(scroll.scrollHeight - scroll.clientHeight)             
-    //         if (scroll.scrollTop + scroll.clientHeight == scroll.scrollHeight) {
-    //             //console.log('hither!');
-    //         }
-    //         }
-    //   })(document.getElementById('scroll'));
-
-    //console.log(document.querySelectorAll('div.step'))
-    // (function(divsteps){
-    //     console.log(divsteps);
-    //     for(let i = 0; i < divsteps.length; i++){
-    //         if(divsteps.classList?.contains('is-active')){
-    //             console.log(divsteps.classList[i]);
-    //             break;
-    //         }
-    //     }
-    // })(document.querySelectorAll('div.step'))
-
 
     const resourcesImgs = '../../../../../re-versing/mngassets/posts/2024-05-27-tls-ssl-v1.2-handshake-made-simple-session-keys-generation/img/';
 
@@ -110,15 +69,8 @@ window.onload = (event) => {
 
     // scrollama event handlers
     function handleStepEnter(response) {
-        //console.log(response)
-        // response = { element, direction, index }
-        // add color to current step only
         // E: add class active to the step which response.index is entering
         step.classed('is-active', function (d, i) { return i === response.index; });
-            //console.log('response', response);
-            //response.element.querySelector('.explain').style.display = 'inline';
-        // update graphic based on step
-        //figure.select('p').text(response.index + 1);
         let figElem = document.getElementById('scrollfig');
 
         function imagePlacing(imageName){
@@ -133,16 +85,12 @@ window.onload = (event) => {
    
         function arrowOpacityAnimationScroll(){
             let scroll = response.element.querySelector('.explain');
-            //if(response.element.querySelector('.explain').style.height > '50px'){
-                scroll.onscroll = function(){
-                    let arrowDown = scroll.parentNode.querySelector('.arrow.down');
-                    arrowDown.style.opacity = 1 - scroll.scrollTop/(scroll.scrollHeight - scroll.clientHeight);
-                    let arrowTop = scroll.parentNode.querySelector('.arrow.top');
-                    arrowTop.style.opacity = scroll.scrollTop/(scroll.scrollHeight - scroll.clientHeight);
-                }
-            //}else{
-            //    response.element.querySelectorAll('.arrow-wrap .arrow').forEach((v)=>{console.log(v);v.style.display = 'none';}) 
-            //}
+            scroll.onscroll = function(){
+                let arrowDown = scroll.parentNode.querySelector('.arrow.down');
+                arrowDown.style.opacity = 1 - scroll.scrollTop/(scroll.scrollHeight - scroll.clientHeight);
+                let arrowTop = scroll.parentNode.querySelector('.arrow.top');
+                arrowTop.style.opacity = scroll.scrollTop/(scroll.scrollHeight - scroll.clientHeight);
+            }
 
        };
    
@@ -192,22 +140,6 @@ window.onload = (event) => {
                         response.element.querySelectorAll('.arrow-wrap').forEach((v)=>{v.style.display = 'none';})
                     }
                 }
-                //else if(response.index == 13){
-                    // let totalHeight = 0;
-                    // response.element.querySelector('.explain').querySelectorAll('p').forEach((v)=>{totalHeight += v.clientHeight;})
-                    // //console.log(total, Array.from(response.element.querySelector('.explain').querySelectorAll('p')).reduce((t,p)=>{return t += p.clientHeight;}), .95*response.element.querySelector('.explain').clientHeight);
-                    // if(totalHeight > .97*response.element.querySelector('.explain').clientHeight){
-                    //     arrowOpacityAnimationScroll();
-                    //     arrowAnimationClick();
-                    // }else{
-                    //     response.element.querySelectorAll('.arrow-wrap').forEach((v)=>{v.style.display = 'none';})
-                    // }
-                    // //if(!figElem.getElementsByClassName('scrollamaImg')[0].src.includes('TLS%20-%20session%20keys.png')){
-                    // if(!figElem.getElementsByClassName('scrollamaImg')[0] == null){
-                    //     imagePlacing(currentActive.img);
-                    // }
-
-                //}
             }else{
                 alert('step not found');
             }
@@ -241,7 +173,7 @@ window.onload = (event) => {
         scroller.setup({
             step: '#scrolly div.articlepost .step',
             offset: .33,
-            debug: false,
+            debug: true,
         })
             .onStepEnter(handleStepEnter);
         
