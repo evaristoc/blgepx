@@ -2,11 +2,11 @@
 window.onload = (event) => {
     // using d3 for convenience
     // E: could have been something like jQuery, etc...
-    var main = d3.select('body');
-    var scrolly = main.select('#scrolly');
-    var figure = scrolly.select('figure');
-    var article = scrolly.select('div .articlepost');
-    var step = article.selectAll('.step');
+    var main = document.querySelector('body');
+    var scrolly = main.querySelector('#scrolly');
+    var figure = scrolly.querySelector('figure');
+    var article = scrolly.querySelector('div .articlepost');
+    var step = article.querySelectorAll('.step');
 
     console.log(main, scrolly, figure, article, step);
     
