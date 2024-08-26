@@ -27,7 +27,7 @@ window.onload = (event) => {
         let figureMarginTop = (window.innerHeight - figureHeight) / 2;  
         figure
             .style('height', figureHeight + 'px')
-            .style('top', figureMarginTop + 'px');
+            //.style('top', figureMarginTop + 'px');
         
     // 3. tell scrollama to update new element dimensions
         scroller.resize();
@@ -174,7 +174,7 @@ window.onload = (event) => {
     // 3. bind scrollama event handlers (this can be chained like below)
         scroller.setup({
             step: '#scrolly div.articlepost .step',
-            offset: -0.11,
+            offset: -0.0,
             debug: true,
         })
             .onStepEnter(handleStepEnter);
