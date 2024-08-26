@@ -24,10 +24,10 @@ window.onload = (event) => {
         step.style('height', stepH + 'px');
 
         let figureHeight = window.innerHeight / 2;
-        let figureMarginTop = (window.innerHeight - figureHeight) / 2;  
+        let figureMarginTop = (window.innerHeight - figureHeight) / 4;  
         figure
             .style('height', figureHeight + 'px')
-            //.style('top', figureMarginTop + 'px');
+            .style('top', figureMarginTop + 'px');
         
     // 3. tell scrollama to update new element dimensions
         scroller.resize();
