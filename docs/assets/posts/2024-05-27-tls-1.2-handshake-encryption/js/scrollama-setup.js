@@ -174,7 +174,7 @@ window.onload = (event) => {
     // 3. bind scrollama event handlers (this can be chained like below)
         scroller.setup({
             step: '#scrolly div.articlepost .step',
-            offset: .11,
+            offset: -0.11,
             debug: true,
         })
             .onStepEnter(handleStepEnter);
