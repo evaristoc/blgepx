@@ -2,11 +2,13 @@
 window.onload = (event) => {
     // using d3 for convenience
     // E: could have been something like jQuery, etc...
-    var main = d3.select('main');
+    var main = d3.select('body');
     var scrolly = main.select('#scrolly');
     var figure = scrolly.select('figure');
     var article = scrolly.select('div .articlepost');
     var step = article.selectAll('.step');
+
+    console.log(main, scrolly, figure, article, step);
     
     // initialize the scrollama
     var scroller = scrollama();
