@@ -8,6 +8,7 @@
 img.scrollamaImg{
     display:block;
     margin: auto;
+    max-width: 300px;
   }
 
 .step div {
@@ -52,7 +53,7 @@ div.arrow-wrap{
    }
 
    .step div{
-    height: 100%;
+    max-height: 100%;
    }
 
   .step.is-active div{

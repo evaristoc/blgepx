@@ -64,6 +64,7 @@ figure {
   margin: 0 auto 2rem auto;
   background-color: #3b3b3b;
   color: #fff;
+  max-height: fit-content;
 }
 
 .step:last-child {
